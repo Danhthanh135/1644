@@ -1,0 +1,56 @@
+<!-- index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>product</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+
+    <body>
+        <h1>Danh sách sản phẩm</h1>
+        
+        <!-- (1): CREATE Task -->         
+        <!-- --> 
+        <form action="/quotes" method="POST">   
+            <input type="text" placeholder="Name" name="Name" />        
+            <input type="text" placeholder="Id" name="Id" />
+            <input type="text" placeholder="Priece" name="Piece" />
+            <button type="submit">Submit</button>
+        </form>
+        <!-- -->                               
+
+        <!-- (2) READ Task -->                        
+        <h2> Hiện dữ liệu </h2>
+        <ul class="quotes">
+            <!-- Loop through quotes -->
+            <% quotes.forEach(quote=> {%>
+                <li class="quote">
+                    
+                    <!-- Output name from the iterated quote object -->
+                    <span><%= quote.Name %></span>:
+                    <span><%= quote.Id %></span>:
+                    <!-- Output quote from the iterated quote object -->
+                    <span><%= quote.Piece %></span>
+                </li>
+            <% }) %>
+        </ul>    
+
+        <!-- (3) UPDATE Task -->
+        <div>
+            <h2>Cập nhật sản phẩm</h2>
+            <button id="update-button">Update</button>
+        </div>
+
+        <div>
+            <h2>Xóa sửa sản phẩm</h2>
+            
+            <button id="delete-button">Delete</button>
+        </div>
+
+        <!-- ... -->
+        <script src="/main.js"></script>
+    
+    </body>
+
+</html>
